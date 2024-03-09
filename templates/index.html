@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='populations.css') }}">
+    <title>Home</title>
+    </head>
+    <body>    
+    <div class="welcome-message-wrapper">
+        <h1 class="welcome-message">Welcome, <span class="bold-text">Jay</span></h1>
+    </div>
+    <div class="population-section">
+        <div class="active-populations">
+            <h3>Active Populations</h3>   
+            <ol>
+                <li><a href="/populations/ais">Msc - Artificial Intelligence Systems - F2021 ({{ students[0][0][0] }} Students) </a></li>
+                <li><a href="/populations/cs">Msc - Cyber Security - F2021 ({{ students[1][0][0] }} Students) </a></li>
+                <li><a href="/populations/dsa">MSc - Data Science and Analytics - F2021 ({{ students[2][0][0] }} Students) </a></li>
+                <li><a href="/populations/ism">Msc - Information Systems Management - F2021 ({{ students[3][0][0] }} Students) </a></li>
+                <li><a href="/populations/se">MSc - Software Engineering - F2021 ({{ students[4][0][0] }} Students) </a></li>
+            </ol>
+        </div>
+        <div class="activepop-chart">
+            <img class="pop-chart" src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart" width="800" height="400">
+        </div>
+    </div>
+
+
+    <div class="attendance-section">
+        <div class="overall-attendance">
+            <h3>Overall Attendance</h3>
+            <ol>
+                <li>Msc - Artificial Intelligence Systems - F2021 ({{ attendance[0][0][3] }}%)</li>
+                <li>Msc - Cyber Security - F2021 ({{ attendance[1][0][3] }}%)</li>
+                <li>MSc - Data Science and Analytics ({{ attendance[2][0][3] }}%)</li>
+                <li>Msc - Information Systems Management ({{ attendance[3][0][3] }}%)</li>
+                <li>MSc - Software Engineering - F2021 ({{ attendance[4][0][3] }}%)</li>
+            </ol>
+        </div>
+        <div class="overall-attendance-chart">
+            <img class="pop-chart" src="{{ url_for('static', filename='bar_chart.png') }}" alt="Bar Chart" width="800" height="400">
+        </div>
+    </div>
+
+    <div id="constructionDate">
+        Website Last Generation: <span id="lastUpdatedDate"></span>
+    </div>
+
+    <script src="{{ url_for('static', filename='last_generation.js') }}"></script>
+    </body>
+    </html>
