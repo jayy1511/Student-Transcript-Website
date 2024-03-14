@@ -23,7 +23,7 @@ The project comprises four main components: Python, HTML, CSS, JavaScript, and S
 
 ## How to Run it
 
-1. Update the database connection in the `server.py` file.
+1. Update the database connection in the `server.py` file. Database is in the static folder (db.zip). You have to extract that file and have to execute .sql files and then update the database connection as mentioned before.
 2. Run the `server.py` script.
 3. Follow the link provided in the output after running the Python file.
 
