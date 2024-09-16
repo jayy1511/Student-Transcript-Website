@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    color: #007BFF; /* Updated link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+
+body {
+    background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.9;
+    color: #212529;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    overflow-x: hidden;
+}
+
+.bold-text {
+    color: #333;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-message {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+::selection {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+#constructionDate {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #343a40;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #f8f9fa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr {
+    transition: background-color 0.3s ease;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table tr:hover td:nth-child(2) a {
+    font-weight: bolder;
+    color: #0056b3;
+    text-decoration: none;
+}

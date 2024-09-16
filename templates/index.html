@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='populations.css') }}">
+<title>Home</title>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo-space">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+    </div>
+    <h1 class="navbar-heading">EPITA Student Portal</h1>
+</nav>
+
+<div class="population-section">
+    <div class="active-populations">
+        <h3>Active Populations</h3>
+        <table>
+            <tr>
+                <th>Program</th>
+                <th>Students</th>
+            </tr>
+            <tr>
+                <td><a href="/populations/ais">Msc - Artificial Intelligence Systems - F2021</a></td>
+                <td>{{ students[0][0][0] }}</td>
+            </tr>
+            <tr>
+                <td><a href="/populations/cs">Msc - Cyber Security - F2021</a></td>
+                <td>{{ students[1][0][0] }}</td>
+            </tr>
+            <tr>
+                <td><a href="/populations/dsa">MSc - Data Science and Analytics - F2021</a></td>
+                <td>{{ students[2][0][0] }}</td>
+            </tr>
+            <tr>
+                <td><a href="/populations/ism">Msc - Information Systems Management - F2021</a></td>
+                <td>{{ students[3][0][0] }}</td>
+            </tr>
+            <tr>
+                <td><a href="/populations/se">MSc - Software Engineering - F2021</a></td>
+                <td>{{ students[4][0][0] }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="activepop-chart">
+        <img class="pop-chart" src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart">
+    </div>
+</div>
+
+<div class="attendance-section">
+    <div class="overall-attendance">
+        <h3>Overall Attendance</h3>
+        <table>
+            <tr>
+                <th>Program</th>
+                <th>Attendance (%)</th>
+            </tr>
+            <tr>
+                <td>Msc - Artificial Intelligence Systems - F2021</td>
+                <td>{{ attendance[0][0][3] }}</td>
+            </tr>
+            <tr>
+                <td>Msc - Cyber Security - F2021</td>
+                <td>{{ attendance[1][0][3] }}</td>
+            </tr>
+            <tr>
+                <td>MSc - Data Science and Analytics</td>
+                <td>{{ attendance[2][0][3] }}</td>
+            </tr>
+            <tr>
+                <td>Msc - Information Systems Management</td>
+                <td>{{ attendance[3][0][3] }}</td>
+            </tr>
+            <tr>
+                <td>MSc - Software Engineering - F2021</td>
+                <td>{{ attendance[4][0][3] }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="overall-attendance-chart">
+        <img class="pop-chart" src="{{ url_for('static', filename='bar_chart.png') }}" alt="Bar Chart">
+    </div>
+</div>
+
+<div id="constructionDate">
+    Website Last Generation: <span id="lastUpdatedDate"></span>
+</div>
+
+<script src="{{ url_for('static', filename='last_generation.js') }}"></script>
+</body>
+</html>
