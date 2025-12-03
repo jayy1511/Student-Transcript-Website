@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    color: #007BFF; /* Updated link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+
+body {
+    background: linear-gradient(135deg, #f3f4f6, #ffffff);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.9;
+    color: #212529;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    overflow-x: hidden;
+}
+
+.bold-text {
+    color: #333;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-message {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+::selection {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+#constructionDate {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #343a40;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #f8f9fa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr {
+    transition: background-color 0.3s ease;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table tr:hover td:nth-child(2) a {
+    font-weight: bolder;
+    color: #0056b3;
+    text-decoration: none;
+}
+:root {
+  --bg: #0b0d12;
+  --bg-elev-1: #121620;
+  --bg-elev-2: #171c27;
+  --bg-soft: #0f131b;
+
+  --text: #e6e8ee;
+  --text-dim: #b7bdc9;
+  --muted: #8a91a1;
+
+  --primary: #7aa2ff;
+  --primary-600: #5f8cff;
+  --primary-700: #3e6df0;
+
+  --success: #4ade80;
+  --warning: #facc15;
+  --danger: #fb7185;
+
+  --border: #222a38;
+  --border-strong: #2b3445;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --focus: 0 0 0 3px rgba(122,162,255,.35);
+}
+
+html, body { background: var(--bg) !important; color: var(--text) !important; }
+
+/* Navbar / footer */
+.navbar, header, footer {
+  background: linear-gradient(180deg, var(--bg-elev-2), var(--bg-elev-1)) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+footer { border-top: 1px solid var(--border) !important; }
+
+/* Cards / panels / generic sections */
+.card, .panel, .box, .section, .wrapper, .content, .container {
+  background: linear-gradient(180deg, var(--bg-elev-1), var(--bg-elev-2)) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--text) !important;
+}
+
+/* Links + buttons */
+a { color: var(--primary) !important; }
+a:hover { color: var(--primary-600) !important; }
+
+button, .btn, input[type="submit"] {
+  background: var(--primary) !important;
+  color: #0b0d12 !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--radius-sm) !important;
+}
+button:hover, .btn:hover, input[type="submit"]:hover { background: var(--primary-600) !important; }
+
+/* Inputs */
+input, select, textarea {
+  background: var(--bg-soft) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--muted) !important; }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary-600) !important;
+  box-shadow: var(--focus) !important;
+}
+
+/* Tables (grades pages, etc.) */
+table {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--text) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+thead { background: var(--bg-elev-2) !important; }
+th, td { border-bottom: 1px solid var(--border) !important; color: var(--text) !important; }
+tbody tr:hover { background: rgba(122,162,255,0.06) !important; }
+tbody tr:nth-child(odd) { background: rgba(255,255,255,0.02) !important; }
+
+/* Charts/images sections get a darker background */
+.canvas, .chart, .chart-wrapper, .image-wrapper {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: #2a3243; border-radius: 10px; }
+*::-webkit-scrollbar-track { background: #0b0f16; }
+
+:root {
+  --bg: #0b0c10;
+  --bg-elev-1: #121317;
+  --bg-elev-2: #17181d;
+  --bg-soft: #0f1014;
+
+  --text: #e7e7eb;
+  --text-dim: #b5b5bd;
+  --muted: #9a9aa3;
+
+  --line: #2a2f3a;
+  --line-strong: #363b46;
+  --hover: rgba(255,255,255,0.04);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+}
+
+/* Base */
+html, body { background: var(--bg) !important; color: var(--text) !important; }
+a { color: var(--text) !important; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Navbar/footer */
+.navbar, header, footer {
+  background: var(--bg-elev-1) !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+footer { border-top: 1px solid var(--line) !important; }
+
+/* Cards/sections/wrappers */
+.card, .panel, .box, .section, .wrapper, .content, .container {
+  background: var(--bg-elev-1) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Buttons: monochrome only */
+button, .btn, input[type="submit"] {
+  background: #1d2027 !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line-strong) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: none !important;
+}
+button:hover, .btn:hover, input[type="submit"]:hover {
+  background: #232732 !important;
+}
+
+/* Inputs */
+input, select, textarea {
+  background: var(--bg-soft) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius-sm) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--muted) !important; }
+
+/* ===== TABLES (kills the blue headers) ===== */
+table, .table {
+  width: 100%;
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  color: var(--text) !important;
+}
+thead, thead tr, thead th, .table thead th, th {
+  background: #1e222b !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--line-strong) !important;
+}
+tbody tr { background: transparent !important; }
+tbody tr:nth-child(odd) { background: #12151c !important; }
+tbody tr:nth-child(even) { background: #0f1218 !important; }
+tbody tr:hover { background: var(--hover) !important; }
+td, th { border-bottom: 1px solid var(--line) !important; }
+.table a, td a, th a { color: var(--text) !important; }
+.table a:hover, td a:hover, th a:hover { color: #fff !important; }
+
+/* Charts/images containers */
+.canvas, .chart, .chart-wrapper, .image-wrapper, .pop-chart {
+  background: var(--bg-elev-1) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Muted text utility */
+.muted, .subtitle, .small, .note { color: var(--text-dim) !important; }
+
+/* Scrollbar */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: #2a2f3a; border-radius: 10px; }
+*::-webkit-scrollbar-track { background: #0b0e13; }
+/* --- Title color override --- */
+.navbar-heading {
+  color: #f2f3f5 !important;   /* bright off-white */
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+
+/* If you prefer slightly dimmer: */
+/*
+.navbar-heading { color: #dddddf !important; }
+*/
+/* ----- Footer overlap fix ----- */
+footer {
+  position: static !important;    /* no more fixed footer */
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  margin-top: 32px !important;    /* space above footer */
+}
+
+/* Safety: make sure page can grow under it */
+html, body { min-height: 100%; }

@@ -1,0 +1,98 @@
+body {
+    padding-bottom: 100px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.logo-space {
+    margin-right: 10px; /* Reduced space between logo and heading */
+}
+
+.logo {
+    max-height: 50px; /* Adjust the height as needed */
+}
+
+.navbar-heading {
+    font-size: 2em; /* Adjust font size as needed */
+    font-weight: 700;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0; /* Remove default margin */
+}
+
+.population-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.active-populations, .overall-attendance {
+    flex: 1;
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+.activepop-chart, .overall-attendance-chart {
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-top: 3%;
+}
+
+.pop-chart {
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.active-populations table, .overall-attendance table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.active-populations th, .overall-attendance th, 
+.active-populations td, .overall-attendance td {
+    text-align: center; /* Center text in all table cells */
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.active-populations th, .overall-attendance th {
+    text-align: center; /* Center text in table headings */
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.active-populations td a {
+    text-decoration: none;
+    color: #007BFF;
+    transition: font-weight 0.3s ease, color 0.3s ease;
+}
+
+.active-populations td a:hover {
+    font-weight: bolder;
+    color: #0056b3;
+}
+
+.attendance-section {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%;
+}
