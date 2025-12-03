@@ -1,35 +1,61 @@
-# Student Transcript Website
+# Student Transcript Portal
 
-## Introduction
+A professional, web-based student transcript management system built with Python (Flask) and SQLite. This application allows for the visualization and management of student grades, attendance, and population statistics across various Master's programs.
 
-This project aims to create a static student transcript website using Python (with Flask), HTML, CSS, JavaScript, and SQL. It provides an overview of the project structure, code explanation, instructions on how to run it, and a conclusion.
+## Features
 
-## Page Description
+- **Dashboard Overview**: Visual analytics of active populations and overall attendance using dynamic charts.
+- **Population Management**: Detailed views of student cohorts (AIS, CS, DSA, ISM, SE).
+- **Grade Tracking**: Comprehensive grade reports for individual courses and students.
+- **Responsive Design**: Modern, clean UI built with CSS variables and Flexbox/Grid for optimal viewing on all devices.
+- **Data Visualization**: Integrated Matplotlib charts for data insights.
 
-The website consists of multiple pages:
-- **Welcome Page**: Provides an overview of the project.
-- **Population Page**: Displays a list of active populations, which are clickable, leading to the population page for each group. This page has two sections: Students and Courses. The Students section contains a table with information about students, while the Courses section lists all courses and their subjects. Both students and courses are clickable, leading to the grades page, which displays each student's grades in the particular course.
-- **Grades Page**: Shows the grades of students in specific courses.
-- **Navigation**: Each page includes a clickable "Home" link at the top to return to the Welcome page.
+## Technology Stack
 
-## Code Explanation
+- **Backend**: Python 3.x, Flask
+- **Frontend**: HTML5, CSS3 (Modern Variables & Flexbox), JavaScript
+- **Database**: SQL (pymysql/SQLite)
+- **Visualization**: Matplotlib
 
-The project comprises four main components: Python, HTML, CSS, JavaScript, and SQL.
+## Project Structure
 
-- **HTML and CSS**: The main `index.html` file serves as the welcome page, while other HTML files are created for the population and grades pages. Data is injected into these HTML files using Flask. CSS files are organized into separate files for each page and a common file for shared styles.
-- **Python (Flask)**: Python scripts handle database connection using pymysql and execute queries using Flask. Routes are defined for each page of the website.
-- **Chart**: Matplotlib is used for generating charts, which are integrated into the `index.html` page.
-- **Last Website Generation**: JavaScript is utilized for the last website generation function.
+```
+├── server.py              # Main Flask application entry point
+├── static/                # Static assets (CSS, JS, Images, Database)
+│   ├── common.css         # Main design system and styles
+│   ├── last_generation.js # Footer timestamp script
+│   └── ...
+├── templates/             # HTML Templates (Jinja2)
+│   ├── index.html         # Dashboard
+│   ├── login.html         # Authentication
+│   ├── populations/       # Population detail pages
+│   └── grades/            # Grade detail pages
+└── README.md              # Project documentation
+```
 
-## How to Run it
+## Setup & Installation
 
-1. Update the database connection in the `server.py` file. Database is in the static folder (db.zip). You have to extract that file and have to execute .sql files and then update the database connection as mentioned before.
-2. Run the `server.py` script.
-3. Follow the link provided in the output after running the Python file.
+1.  **Prerequisites**: Ensure Python 3.x is installed on your system.
+2.  **Database Setup**:
+    - Locate `db.zip` in the `static` folder.
+    - Extract the contents and execute the `.sql` files to initialize your database.
+    - Update the database connection settings in `server.py` if necessary.
+3.  **Install Dependencies**:
+    ```bash
+    pip install flask pymysql matplotlib
+    ```
+4.  **Run the Application**:
+    ```bash
+    python server.py
+    ```
+5.  **Access**: Open your browser and navigate to `http://localhost:5000` (or the port specified in the console).
 
-Ensure that the `static` folder contains CSS files, JavaScript files, and images used in the website, while the `templates` folder contains all HTML templates. These folders should be placed in the `src` folder in a zip file. Avoid putting anything in the `site` folder to maintain consistency in URLs across HTML templates and Python files.
+## Usage
 
-## Conclusion
+- **Home**: View the overview of all programs and attendance stats.
+- **Populations**: Click on a program name to view the list of students and courses for that cohort.
+- **Grades**: Navigate to a specific course to view detailed grade breakdowns.
 
-While this may not be the most efficient approach, creating this website using Flask was a valuable learning experience. It provided insights into Python development with Flask and enhanced understanding of web development fundamentals. Despite its simplicity, the process contributed to skill development and understanding of web technologies. 
+## License
 
+This project is for educational purposes.

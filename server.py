@@ -1,4 +1,4 @@
-import mysql.connector
+# import mysql.connector  # Removed; using pymysql instead
 from flask import Flask, render_template
 import pymysql
 import matplotlib

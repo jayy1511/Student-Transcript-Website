@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
-    <title>Edit Student</title>
+    <title>Edit Student - EPITA Student Portal</title>
 </head>
-<body>
-    <h3>Edit Student</h3>
-    <form action="" method="POST">
-        <label>Email: <input type="email" name="email" value="{{ student[0] }}" readonly></label>
-        <label>First Name: <input type="text" name="first_name" value="{{ student[1] }}"></label>
-        <label>Last Name: <input type="text" name="last_name" value="{{ student[2] }}"></label>
-        <label>Passed: <input type="text" name="passed" value="{{ student[3] }}"></label>
-        <button type="submit">Save Changes</button>
-    </form>
+
+<body class="fade-in">
+    <nav class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+            <div class="logo-space">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="EPITA Logo" class="logo">
+            </div>
+            <h1 class="navbar-heading">Student Portal</h1>
+        </div>
+    </nav>
+
+    <div class="container section">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h3>Edit Student Details</h3>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ student[0] }}" readonly
+                        style="background-color: #f1f5f9; cursor: not-allowed;">
+                </div>
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" value="{{ student[1] }}">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" value="{{ student[2] }}">
+                </div>
+                <div class="form-group">
+                    <label for="passed">Passed</label>
+                    <input type="text" id="passed" name="passed" value="{{ student[3] }}">
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="btn">Save Changes</button>
+                    <a href="javascript:history.back()" class="btn"
+                        style="background-color: var(--secondary);">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

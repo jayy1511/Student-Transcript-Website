@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='grades.css') }}">
     <title>Grades MSc AIs</title>
 </head>
-<body>
-    <div class="grades-title-wrapper">
-        <p class="grades-title"><a href="/">Home</a> / <a href="/populations/ais">Population - MSc AIs F2021</a> / Grades - <span class="bold-text">MSc AIs F2021</span></p>
-    </div>
+<body class="fade-in">
+    <nav class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+            <div class="logo-space">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="EPITA Logo" class="logo">
+            </div>
+            <h1 class="navbar-heading">Student Portal</h1>
+        </div>
+    </nav>
 
-    <div class="final-grades-wrapper">
-        <h3 class="final-grades-title">Students final grades for Data Science in Production (AI_DATA_SCIENCE_IN_PROD)</h3>
-
-        <table>
+    <div class="container section">
+        <div class="card mb-4" style="padding: 16px;">
+            <div class="text-muted"><a href="/">Home</a> / <a href="/populations/ais">Population - MSc AIs F2021</a> / Grades - <span class="bold-text">MSc AIs F2021</span></div>
+        </div>
+        
+        
+        <div class="card">
+            <h3>Students final grades for Data Science in Production (AI_DATA_SCIENCE_IN_PROD)</h3>
+            <div class="table-container">
+                <table>
             <tr>
                 <th>Email</th>
                 <th>First Name</th>
@@ -33,9 +43,11 @@
             </tr>
             {% endfor %}
         </table>
+            </div>
+        </div>
+        
     </div>
 
-    <!-- Construction Date -->
     <div id="constructionDate">
         Website Last Generation: <span id="lastUpdatedDate"></span>
     </div>

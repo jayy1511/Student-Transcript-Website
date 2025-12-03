@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='population.css') }}">
     <title>Population MSc Cyber Security</title>
 </head>
-<body>
-    <div class="populations-title-wrapper">
-        <p class="populations-title"><a href="/">Home</a> / Population - <span class="bold-text">M.Sc. Cyber Security F2021</span></p>
-    </div>
+<body class="fade-in">
+    <nav class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+            <div class="logo-space">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="EPITA Logo" class="logo">
+            </div>
+            <h1 class="navbar-heading">Student Portal</h1>
+        </div>
+    </nav>
 
-    <!-- Students -->
-    <div class="students-wrapper">
-        <h3 class="students-title">Students</h3>
-
-        <table>
+    <div class="container section">
+        <div class="card mb-4" style="padding: 16px;">
+            <div class="text-muted"><a href="/">Home</a> / Population - <span class="bold-text">M.Sc. Cyber Security F2021</span></div>
+        </div>
+        
+        
+        <div class="card">
+            <h3>Students</h3>
+            <div class="table-container">
+                <table>
             <tr>
                 <th>Email</th>
                 <th>First Name</th>
@@ -32,12 +41,13 @@
             </tr>
             {% endfor %}
         </table>
-    </div>
-
-    <div class="courses-wrapper">
-        <h3 class="courses-title">Courses</h3>
-
-        <table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3>Courses</h3>
+            <div class="table-container">
+                <table>
             <tr>
                 <th>Course ID</th>
                 <th>Name</th>
@@ -64,6 +74,9 @@
                 <td>{{ courses[3][2] }}</td>
             </tr>
         </table>
+            </div>
+        </div>
+        
     </div>
 
     <div id="constructionDate">
@@ -72,5 +85,4 @@
 
     <script src="{{ url_for('static', filename='last_generation.js') }}"></script>
 </body>
-
 </html>
