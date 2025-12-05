@@ -1,4 +1,4 @@
-# import mysql.connector  # Removed; using pymysql instead
+import mysql.connector
 from flask import Flask, render_template
 import pymysql
 import matplotlib
@@ -303,13 +303,41 @@ def pie_chart():
 
     labels = [row[0] for row in data]
     students_num = [row[1] for row in data]
-    colors = ['#5856D6', '#FF9500', '#FF6482', '#34C759', '#007AFF'] 
-    explode = (0.01, 0.01, 0.01, 0.01, 0.01)
-    plt.figure(figsize=(7, 5))
-    plt.pie(students_num, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140, explode=explode, textprops={'fontname': 'algerian'})
-    plt.title('Students Per Program', fontname='algerian', fontsize=10)
+    
+    # Modern, professional color palette
+    colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'] 
+    explode = (0.02, 0.02, 0.02, 0.02, 0.02)
+    
+    # Create modern pie chart
+    plt.figure(figsize=(10, 7), facecolor='white')
+    ax = plt.gca()
+    ax.set_facecolor('white')
+    
+    wedges,texts, autotexts = plt.pie(
+        students_num, 
+        labels=labels, 
+        colors=colors, 
+        autopct='%1.1f%%', 
+        startangle=90,
+        explode=explode,
+        textprops={'fontsize': 13, 'weight': 'bold', 'family': 'sans-serif'}
+    )
+    
+    # Style the percentage text (white color for better contrast)
+    for autotext in autotexts:
+        autotext.set_color('white')
+        autotext.set_fontsize(12)
+        autotext.set_weight('bold')
+    
+    # Style the labels
+    for text in texts:
+        text.set_fontsize(14)
+        text.set_weight('bold')
+        text.set_color('#1f2937')
+    
+    plt.title('Students Per Program', fontsize=18, weight='bold', pad=20, color='#1f2937', family='sans-serif')
     plt.tight_layout()
-    plt.savefig('static/pie_chart.png', dpi=300)
+    plt.savefig('static/pie_chart.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
 
 # ----Bar-chart----
@@ -329,24 +357,46 @@ def bar_chart():
 
     labels = [row[0] for row in data]
     presence_percentage = [row[3] for row in data]
-    colors = ['#007AFF', '#34C759', '#FF9500', '#FF6482', '#5856D6']
-    plt.figure(figsize=(8, 6))
-    bars = plt.bar(labels, presence_percentage, color=colors, width=0.4, zorder=3)
-    plt.xlabel('Student Population', fontname='algerian', fontsize=12)
-    plt.ylabel('Presence Percentage', fontname='algerian', fontsize=12)
-    plt.title('Overall Attendance Chart', fontname='algerian', fontsize=14)
-    plt.xticks(rotation=0, fontname='algerian', fontsize=10, horizontalalignment='center')
-    plt.yticks(fontname='algerian', fontsize=10)
-    plt.gca().spines['top'].set_visible(True)
-    plt.gca().spines['right'].set_visible(True)
-    plt.gca().spines['left'].set_linewidth(0.5)
+    
+    # Modern, professional color palette
+    colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981']
+    
+    # Create figure with larger size and white background
+    plt.figure(figsize=(11, 7), facecolor='white')
+    ax = plt.gca()
+    ax.set_facecolor('white')
+    
+    # Create modern bar chart
+    bars = plt.bar(labels, presence_percentage, color=colors, width=0.6, zorder=3, edgecolor='white', linewidth=1.5)
+    
+    # Add gridlines for better readability
+    plt.grid(axis='y', alpha=0.2, linestyle='--', linewidth=0.8, zorder=0)
+    
+    # Labels and title
+    plt.xlabel('Student Population', fontsize=14, weight='semibold', color='#1f2937', family='sans-serif')
+    plt.ylabel('Attendance Percentage (%)', fontsize=14, weight='semibold', color='#1f2937', family='sans-serif')
+    plt.title('Overall Attendance by Program', fontsize=18, weight='bold', pad=20, color='#1f2937', family='sans-serif')
+    
+    # Style ticks
+    plt.xticks(rotation=0, fontsize=12, weight='medium', color='#374151', family='sans-serif')
+    plt.yticks(fontsize=11, color='#6b7280', family='sans-serif')
+    
+    # Clean up spines
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_color('#e5e7eb')
+    ax.spines['bottom'].set_color('#e5e7eb')
+    ax.spines['left'].set_linewidth(1)
+    ax.spines['bottom'].set_linewidth(1)
 
+    # Add value labels on top of bars
     for bar in bars:
         yval = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width() / 2, yval, round(yval, 2), va='bottom', ha='center', fontname='monospace', fontsize=8)
+        plt.text(bar.get_x() + bar.get_width() / 2, yval + 1, f'{round(yval, 1)}%', 
+                ha='center', va='bottom', fontsize=11, weight='bold', color='#374151', family='sans-serif')
 
     plt.tight_layout()
-    plt.savefig('static/bar_chart.png', dpi=300)
+    plt.savefig('static/bar_chart.png', dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
 
 if __name__ == "__main__":

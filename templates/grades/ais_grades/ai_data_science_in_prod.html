@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="EPITA Logo" class="logo">
             </div>
             <h1 class="navbar-heading">Student Portal</h1>
+            <button class="theme-toggle" aria-label="Toggle theme">☀️</button>
         </div>
     </nav>
 
@@ -52,6 +53,7 @@
         Website Last Generation: <span id="lastUpdatedDate"></span>
     </div>
 
+    <script src="{{ url_for('static', filename='theme-toggle.js') }}"></script>
     <script src="{{ url_for('static', filename='last_generation.js') }}"></script>
 </body>
 </html>

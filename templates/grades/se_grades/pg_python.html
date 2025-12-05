@@ -1,57 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
-    <title>Grades MSc SE</title>
-</head>
-<body class="fade-in">
-    <nav class="navbar">
-        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-            <div class="logo-space">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="EPITA Logo" class="logo">
-            </div>
-            <h1 class="navbar-heading">Student Portal</h1>
-        </div>
-    </nav>
+{% extends "base.html" %}
 
-    <div class="container section">
-        <div class="card mb-4" style="padding: 16px;">
-            <div class="text-muted"><a href="/">Home</a> / <a href="/populations/se">Population - MSc Software Engineering F2021</a> / Grades - <span class="bold-text">MSc SE F2021</span></div>
+{% block title %}Grades - SE{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    
+    <!-- Breadcrumb & Header -->
+    <div class="flex flex-col gap-2">
+        <nav class="flex text-sm text-gray-500">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span class="mx-2">/</span>
+            <a href="/populations/se" class="hover:text-white transition-colors">MSc SE</a>
+            <span class="mx-2">/</span>
+            <span class="text-white">Grades</span>
+        </nav>
+        <h1 class="text-2xl font-bold text-white">Course Grades</h1>
+        <div class="flex items-center gap-2 text-sm text-gray-400">
+            <span class="px-2 py-0.5 rounded bg-gray-800 border border-gray-700 font-mono text-xs">FALL 2021</span>
         </div>
-        
-        
-        <div class="card">
-            <h3>Students final grades for Python Fundamentals (PG_PYTHON)</h3>
-            <div class="table-container">
-                <table>
-            <tr>
-                <th>Email</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Exam Type</th>
-                <th>Grade (20)</th>
-            </tr>
-            {% for grades in grades %}
-            <tr>
-                <td>{{ grades[0] }}</td>
-                <td>{{ grades[1] }}</td>
-                <td>{{ grades[2] }}</td>
-                <td>{{ grades[3] }}</td>
-                <td>{{ grades[4] }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-            </div>
-        </div>
-        
     </div>
 
-    <div id="constructionDate">
-        Website Last Generation: <span id="lastUpdatedDate"></span>
+    <!-- Grades Table Card -->
+    <div class="bg-dark-card border border-dark-border rounded-xl overflow-hidden shadow-lg">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-gray-400">
+                <thead class="bg-black/20 text-xs uppercase font-semibold text-gray-500">
+                    <tr>
+                        <th class="px-6 py-3">Student</th>
+                        <th class="px-6 py-3">Email</th>
+                        <th class="px-6 py-3">Exam Type</th>
+                        <th class="px-6 py-3 text-right">Grade (20)</th>
+                        <th class="px-6 py-3 text-right">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-dark-border">
+                    {% for grade in grades %}
+                    <tr class="hover:bg-dark-hover transition-colors">
+                        <td class="px-6 py-4 font-medium text-white">
+                            {{ grade[1] }} {{ grade[2] }}
+                        </td>
+                        <td class="px-6 py-4 text-gray-500">{{ grade[0] }}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 py-1 rounded text-xs bg-gray-800 text-gray-300 border border-gray-700">
+                                {{ grade[3] }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 text-right font-mono font-bold text-white">
+                            {{ grade[4] }}
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            {% if grade[4] >= 10 %}
+                            <span class="px-2 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-500 border border-green-500/20">Passed</span>
+                            {% else %}
+                            <span class="px-2 py-1 rounded-full text-xs font-medium bg-red-500/10 text-red-500 border border-red-500/20">Failed</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <script src="{{ url_for('static', filename='last_generation.js') }}"></script>
-</body>
-</html>
+</div>
+{% endblock %}
